@@ -40,7 +40,7 @@ const Index = () => {
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Transform your imagination into breathtaking visuals with our cutting-edge AI technology
             </p>
             

@@ -191,17 +191,18 @@ const Generator = () => {
             
             <form onSubmit={handleGenerate} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="prompt" className="text-base font-semibold">Prompt</Label>
+                <Label htmlFor="prompt" className="text-base font-semibold">Your Vision</Label>
                 <Textarea
                   id="prompt"
-                  placeholder="Describe the image you want to create in detail..."
+                  placeholder="A majestic lion in a sunset savanna, cinematic lighting, 8k quality..."
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  className="min-h-[120px] resize-none"
+                  className="min-h-[120px] resize-none bg-muted/30 border-primary/20 focus:border-primary/50 transition-colors"
                   disabled={loading}
                 />
-                <p className="text-sm text-muted-foreground">
-                  💡 Be detailed and specific for best results
+                <p className="text-sm text-muted-foreground flex items-center gap-2">
+                  <Sparkles className="w-3 h-3" />
+                  Be detailed and specific for best results
                 </p>
               </div>
 
@@ -292,11 +293,15 @@ const Generator = () => {
             
             {generatedImage ? (
               <div className="space-y-4">
-                <div className="relative aspect-square rounded-2xl overflow-hidden border border-border/50 shadow-[var(--shadow-glow)] group">
+                <div className={`relative rounded-2xl overflow-hidden border border-border/50 shadow-[var(--shadow-glow)] group ${
+                  aspectRatio === 'landscape' ? 'aspect-[3/2]' : 
+                  aspectRatio === 'portrait' ? 'aspect-[2/3]' : 
+                  'aspect-square'
+                }`}>
                   <img
                     src={generatedImage}
                     alt="Generated image"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain bg-background/50 group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>

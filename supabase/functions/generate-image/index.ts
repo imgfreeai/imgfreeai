@@ -91,21 +91,30 @@ serve(async (req) => {
       );
     }
 
-    // Map aspect ratio to dimensions
+    // Map aspect ratio to dimensions (properly formatted for the AI model)
     let size = "1024x1024";
+    let aspectPrompt = "";
+    
     switch (aspectRatio) {
       case "square":
         size = "1024x1024";
+        aspectPrompt = "1:1 aspect ratio, square format";
         break;
       case "landscape":
         size = "1536x1024";
+        aspectPrompt = "3:2 aspect ratio, landscape format, horizontal orientation";
         break;
       case "portrait":
         size = "1024x1536";
+        aspectPrompt = "2:3 aspect ratio, portrait format, vertical orientation";
         break;
     }
+    
+    // Enhance prompt with aspect ratio specification
+    const enhancedPrompt = `${prompt}. ${aspectPrompt}`;
 
-    console.log('Generating image with prompt:', prompt);
+    console.log('Generating image with prompt:', enhancedPrompt);
+    console.log('Aspect ratio:', aspectRatio, 'Size:', size);
 
     // Generate image using Lovable AI
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
@@ -119,7 +128,7 @@ serve(async (req) => {
         messages: [
           {
             role: "user",
-            content: prompt
+            content: enhancedPrompt
           }
         ],
         modalities: ["image", "text"],
