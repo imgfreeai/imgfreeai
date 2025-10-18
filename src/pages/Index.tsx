@@ -145,25 +145,25 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 relative">
+      <section className="py-12 md:py-24 px-4 relative pb-8">
         <div className="absolute inset-0 bg-[var(--gradient-mesh)] opacity-40" />
         <div className="container mx-auto max-w-5xl relative">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 border border-primary/30 p-12 md:p-16 text-center shadow-[var(--shadow-glow-lg)]">
-            <div className="relative z-10 space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 border border-primary/30 p-6 md:p-12 lg:p-16 text-center shadow-[var(--shadow-glow-lg)]">
+            <div className="relative z-10 space-y-4 md:space-y-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                 Ready to Create Magic?
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
                 Join thousands of creators using AI to transform their imagination into stunning visuals. Sign up now and get 30 free credits instantly!
               </p>
-              <div className="pt-4">
+              <div className="pt-2 md:pt-4 px-2">
                 <Button 
                   variant="hero" 
                   size="lg"
                   onClick={() => navigate('/auth')}
-                  className="text-xl px-12 py-7 shadow-[var(--shadow-glow-lg)] hover:scale-105 transition-transform"
+                  className="text-base md:text-lg lg:text-xl px-8 md:px-10 lg:px-12 py-5 md:py-6 lg:py-7 shadow-[var(--shadow-glow-lg)] hover:scale-105 transition-transform w-full sm:w-auto"
                 >
-                  <Wand2 className="mr-2 h-6 w-6" />
+                  <Wand2 className="mr-2 h-5 w-5 md:h-6 md:w-6" />
                   Get Started for Free
                 </Button>
               </div>
