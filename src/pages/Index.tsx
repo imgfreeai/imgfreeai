@@ -8,8 +8,41 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Navigation Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-lg">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-8 h-8 text-primary" />
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                AI Image Studio
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Button 
+                variant="ghost" 
+                size="lg"
+                onClick={() => navigate('/auth')}
+                className="text-base"
+              >
+                Sign In
+              </Button>
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => navigate('/auth')}
+                className="text-base shadow-[var(--shadow-glow)]"
+              >
+                <Wand2 className="mr-2 h-5 w-5" />
+                Sign Up Free
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-screen flex items-center">
+      <section className="relative overflow-hidden min-h-screen flex items-center pt-20">
         <div 
           className="absolute inset-0 opacity-20"
           style={{
